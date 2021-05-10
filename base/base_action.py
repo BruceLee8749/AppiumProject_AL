@@ -6,23 +6,20 @@ class BaseAction:
     def __init__(self, driver):
         self.driver = driver
 
-    def find_element(self, feature, timeout=30, poll=1):
-        by = feature[0]
-        value = feature[1]
+    # 获取元素方法封装
+    def find_element(self, loc, timeout=30, poll=0.5):
+        # 使用*表示参数解耦  driver.find_element(*loc) <==>driver.find_element（By.xxx,value)
+        return WebDriverWait(self.driver, timeout=timeout,poll_frequency=poll).until(lambda x: x.find_element(*loc))
 
-        return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(by, value))
+    def find_elements(self, loc, timeout=10, poll=1):
+        return WebDriverWait(self.driver, timeout=timeout, poll_frequency=poll).until(lambda x: x.find_elements(*loc))
 
-    def find_elements(self, feature, timeout=10, poll=1):
-        by = feature[0]
-        value = feature[1]
+    def click(self, loc):
+        self.find_element(loc).click()
 
-        return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_elements(by, value))
+    def input(self, loc, text):
+        self.find_element(loc).clear()
+        self.find_element(loc).send_keys(text)
 
-    def click(self, feature):
-        self.find_element(feature).click()
-
-    def input(self, feature, text):
-        self.find_element(feature).send_keys(text)
-
-    def get_text(self, feature):
-        return self.find_element(feature).text
+    def get_text(self, loc):
+        return self.find_element(loc).text

@@ -4,6 +4,7 @@ from appium import webdriver
 # 务必保证后面的对象使用同一个driver 此处仅返回driver
 def init_driver():
     desired_caps = dict()
+    desired_caps['automationName'] = 'uiautomator2' # 不指定会出错
     desired_caps['platformName'] = 'Android'
     desired_caps['platformVersion'] = '8.0'
     desired_caps['deviceName'] = 'c5e5d5eb'  # 真机名 可以随便写
