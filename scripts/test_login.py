@@ -1,9 +1,8 @@
 from time import sleep
 
-import sys
-sys.path.append('./base')
 from base.base_driver import init_driver  # 按道理说这样导入语法没错。但是但是但是，需要在当前文件夹中建立一个__init__.py文件 或者sys中添加目录
 from page.page import Page
+
 
 class TestLogin:
     def setup(self):
@@ -22,3 +21,4 @@ class TestLogin:
         self.page.login.input_username('itheima_test')
         self.page.login.input_password('itheima')
         self.page.login.click_login()
+        assert self.page.me.get_nick_name_text() == 'itheima_test'
