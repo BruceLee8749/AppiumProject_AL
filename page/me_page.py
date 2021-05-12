@@ -8,4 +8,5 @@ class MyPage(BaseAction):
     nick_name_text_view = 'com.yunmall.lc:id/tv_user_nikename'
 
     def get_nick_name_text(self):
-        self.get_text(self.nick_name_text_view)
+        print('是否打印get_text')
+        return self.get_text(self.nick_name_text_view)
