@@ -16,4 +16,4 @@ class SettingPage(BaseAction):
 
     # 查找并点击 清理缓存
     def click_cache(self):
-        self.find_element_with_scroll(self. clear_cache_button).click()
+        self.find_element_with_scroll(self.clear_cache_button).click()
