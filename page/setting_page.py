@@ -8,7 +8,7 @@ class SettingPage(BaseAction):
     # 关于 百年奥莱按钮
     about_button = By.XPATH, '//*[@text="关于百年奥莱"]'
     # 清理缓存 按钮
-    clear_cache_button = By.XPATH, '//[@text="清理缓存"]'
+    clear_cache_button = By.XPATH, '//*[@text="清理缓存"]'
 
     # 查找并点击 关于百年奥莱按钮
     def click_about(self):

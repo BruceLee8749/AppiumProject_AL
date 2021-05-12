@@ -18,7 +18,7 @@ class TestClearCache:
         self.page.home.login_if_not(self.page)
         # 点击设置按钮
         self.page.me.click_setting()
-        # 进入 设置界 面 查找并点击清理缓存
+        # 进入 设置界面 查找并点击清理缓存
         self.page.setting.clear_cache_button()
         # 查找是否 含有指定toast
         assert self.page.setting.is_toast_exist('清理成功')
