@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from base.base_action import BaseAction
 
 
+# 登录注册页面2
 class LoginPage(BaseAction):
     # 用户名元素
     username_edit_text = By.ID, 'com.yunmall.lc:id/logon_account_textview'

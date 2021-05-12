@@ -1,6 +1,4 @@
 from appium import webdriver
-
-
 # 此处返回一个driver
 # 务必保证后面的对象使用同一个driver  对于登录模块 需要先重置应用
 def init_driver(no_reset=True):

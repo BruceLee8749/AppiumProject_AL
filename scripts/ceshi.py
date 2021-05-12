@@ -15,4 +15,3 @@ desired_caps["resetKeyboard"] = 'False'
 desired_caps['newCommandTimeout'] = '600'  # 设置appium自动关闭程序时间
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 # adb shell dumpsys window windows | findstr mFocusedApp
-
