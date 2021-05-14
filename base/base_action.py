@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -105,4 +107,20 @@ class BaseAction:
                     # 如果滑动 后整屏元素不等于上次整屏元素 就再次赋值
                     page_source = self.driver.page_source
 
-
+    # 获取 关键字字符串是否在page_source中 （driver.page_source 返回是一段超长字符串）
+    def is_keyword_in_page_source(self,keyword,timeout=5,poll=0.2):
+        """
+        keyword: 要找的关键字字符串
+        timeout: 查找总时间
+        poll: 时间间隔
+        return  如果在page_source中返回 True，否则返回False
+        """
+        # 结束时间
+        end_time = time.time() + timeout;
+        while True:
+            # 如果结束时间大于当前时间，那么就认为超时了
+            if time.time() > end_time:
+                return False
+            elif keyword in self.driver.page_source:
+                return True
+            time.sleep(poll)

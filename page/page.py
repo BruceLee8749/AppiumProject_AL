@@ -6,6 +6,7 @@ from page.register_page import RegisterPage
 from page.setting_page import SettingPage
 
 # 所有page的入口类
+from page.vip_page import VipPage
 
 
 class Page:
@@ -41,3 +42,6 @@ class Page:
     @property
     def about(self):
         return AboutPage(self.driver)
+    @property
+    def vip(self):
+        return VipPage(self.driver)

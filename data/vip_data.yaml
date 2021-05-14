@@ -1,0 +1,7 @@
+test_vip:
+  test_vip_001:
+    keyword: '12321'
+    expect: '邀请码输入不正确'
+  test_vip_002:
+    keyword: ''
+    expect: '请填写邀请码'
