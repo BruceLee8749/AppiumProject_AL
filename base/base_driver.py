@@ -5,7 +5,7 @@ from appium import webdriver
 # 务必保证后面的对象使用同一个driver  对于登录模块 需要先重置应用
 def init_driver(no_reset=True):
     desired_caps = dict()
-    desired_caps['automationName'] = 'uiautomator2'  # 不指定2版本会出错
+    desired_caps['automationName'] = 'uiautomator2'  # 不指定2版本会出错 使用该框架还能解决中文乱码问题
     desired_caps['platformName'] = 'Android'
     desired_caps['platformVersion'] = '8.0'  # S7为8.0
     desired_caps['deviceName'] = 'c5e5d5eb'  # S7真机名 可以随便写

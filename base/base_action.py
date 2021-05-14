@@ -76,18 +76,18 @@ class BaseAction:
 
         # 从下往上滑动
         if direction == 'up':
-            self.driver.swipe(bottom_x,bottom_y,top_x,top_y,2000)
+            self.driver.swipe(bottom_x,bottom_y,top_x,top_y,1000)
         # 从上往下滑动
         elif direction == 'down':
-            self.driver.swipe(top_x,top_y,bottom_x,bottom_y,2000)
+            self.driver.swipe(top_x,top_y,bottom_x,bottom_y,1000)
         # 从右往左滑动
         elif direction == 'left':
-            self.driver.swipe(right_x,right_y,left_x,left_y,2000)
+            self.driver.swipe(right_x,right_y,left_x,left_y,1000)
         # 从左往右滑动
         elif direction == 'right':
-            self.driver.swipe(left_x,left_y,right_x,right_y,2000)
+            self.driver.swipe(left_x,left_y,right_x,right_y,1000)
         else:
-            raise Exception('必须传指定方向参数名称: up/down/left/right')
+            raise Exception('必须使用指定方向参数名称: up/down/left/right')
 
     # 定义边滑边找方法
     def find_element_with_scroll(self,loc,direction='up'):
