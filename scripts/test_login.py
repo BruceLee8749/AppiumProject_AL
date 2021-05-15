@@ -47,6 +47,5 @@ class TestLogin:
             # 如果用户登录成功，但是输入的用户名和界面显示不一样，就提示：登录后的用户名和输入时的用户名不一致
         else:
             # 找toast提示，把预定toast参数传进去看是否可以找到，如果能就通过，否则不通过
-
             assert self.page.login.is_toast_exist(toast)
 

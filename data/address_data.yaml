@@ -1,0 +1,57 @@
+test_add_address:
+  # 全部为空
+  test_add_address_001:
+    name: ''
+    phone: ''
+    info: ''
+    post_code: ''
+    toast: '收件人姓名'
+  # 姓名为空
+  test_add_address_002:
+    name: ''
+    phone: '12345678910'
+    info: '二单元 305'
+    post_code: '210000'
+    toast: '收件人姓名'
+  # 手机号有误
+  test_add_address_003:
+    name: '张三'
+    phone: "1777+-*"
+    info: '二单元 305'
+    post_code: '210000'
+    toast: '11位手机号'
+  # 手机号有误
+  test_add_address_004:
+    name: '张三'
+    phone: '1777+-/*###12'
+    info: '二单元 305'
+    post_code: '210000'
+    toast: '手机号错误'
+  # 详细地址为空
+  test_add_address_005:
+    name: '张三'
+    phone: '12345678910'
+    info: ''
+    post_code: '210000'
+    toast: '请输入详细地址'
+ # 详细地址有误
+  test_add_address_006:
+    name: '张三'
+    phone: '12345678910'
+    info: '三单元'
+    post_code: '210000'
+    toast: '详细地址为5到60个字符'
+  # 邮编错误
+  test_add_address_007:
+    name: '张三'
+    phone: '12345678910'
+    info: '三单元'
+    post_code: '210'
+    toast: '邮政编码错误'
+  # 信息全部正确 顺便测试邮编为空
+  test_add_address_008:
+    name: '张三'
+    phone: '12345678910'
+    info: '二单元 305'
+    post_code: ''
+    toast: Null

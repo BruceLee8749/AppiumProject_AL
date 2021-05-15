@@ -35,9 +35,9 @@ class BaseAction:
         :return: 是否存在
         contains（）文字部分包含方法
         """
-        message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(message)
+        message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
         try:
-            self.find_element(message_xpath, 5, 0.1)
+            self.find_element(message_xpath,6,0.1)
             print('找到toast元素了')
             return True
         except:
@@ -47,18 +47,18 @@ class BaseAction:
     # 获取toast的全部文本值
     def get_toast_text(self, message):
         if self.is_toast_exist(message):
-            message_xpath = By.XPATH, '//*[contains(@text,"{}}")]'.format(message)
+            message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(message)
             return self.get_text(message_xpath)
         else:
             # 自定义异常信息 并抛出
             raise Exception('toast未出现，请检查参数是否正确，或toast有没有出现在屏幕上')
 
-    # 定义滑动屏幕一次方法  从1/4 到 3/4
+    # 定义滑动屏幕一次方法  从1/4屏幕位置 到 3/4屏幕位置
     def scroll_page_one_time(self, direction='up'):
         width = self.driver.get_window_size()['width']
         height = self.driver.get_window_size()['height']
 
-        # center为中心，用于固定坐标位置起始点
+        # center为中心，为坐标位置起始点
         center_x = width / 2
         center_y = height / 2
 

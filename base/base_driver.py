@@ -17,6 +17,6 @@ def init_driver(no_reset=True):
     desired_caps["resetKeyboard"] = False
     # desired_caps['newCommandTimeout'] = '600'  # 设置appium自动关闭程序时间 不设置APPIUM大概60s自动退出
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
-
     return driver
 # adb shell dumpsys window windows | findstr mFocusedApp 查找包名 界面名
+

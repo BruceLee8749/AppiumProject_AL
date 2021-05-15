@@ -29,7 +29,7 @@ class TestVip:
         sleep(3)
         try:
             print(self.driver.contexts)
-            # 切换Webviewer 页面
+            # 切换 Webviewer 页面
             self.driver.switch_to.context('WEBVIEW_com.yunmall.lc')
             # 进入WebViewer页面 输入邀请码
             self.page.vip.input_invite(self.keyword)

@@ -6,11 +6,10 @@ from page.login_page import LoginPage
 from page.me_page import MyPage
 from page.register_page import RegisterPage
 from page.setting_page import SettingPage
-
-# 所有page的入口类
 from page.vip_page import VipPage
 
 
+# 所有page的入口类
 class Page:
     def __init__(self, driver):
         # 定义同一个变量 保证后面的若干对象使用同一个driver
