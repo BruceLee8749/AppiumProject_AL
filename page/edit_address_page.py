@@ -23,7 +23,7 @@ class EditAddressPage(BaseAction):
     # 省市区
     area_feature = By.ID, 'com.yunmall.lc:id/area_title'
     # 保存
-    save_button = By.ID, 'com.yunmall.lc:id/button_send'
+    save_button = By.XPATH, '//*[@text="保存"]'
 
     # 输入 收件人
     def input_name(self, text):
@@ -59,7 +59,6 @@ class EditAddressPage(BaseAction):
             # 获取 当前屏幕上 所有城市/直辖市元素
             areas = self.find_elements(self.area_feature)
             areas_count = len(areas)
-            print('城市列表中有多少个城市:',areas_count)
             area_index = random.randint(0, areas_count - 1)
             # 获取随机城市  通过列表下标 对列表中一组元素的指定某个元素 进行点击
             areas[area_index].click()
@@ -68,3 +67,16 @@ class EditAddressPage(BaseAction):
     # 点击保存
     def click_save(self):
         self.click(self.save_button)
+
+    # 新增地址组合业务方法
+    def add_new_address_group(self, name_text, phone_text, info_text, post_code_text,set_default):
+        # 输入名字-电话-选择地区-输入详细地址-输入邮编-点击默认-点击保存 Ture-->点击默认按钮
+        print('打印组合方法参数(有些是空值测试值)：{},{},{},{},{}'.format(name_text, phone_text, info_text, post_code_text,set_default))
+        self.input_name(name_text)
+        self.input_phone(phone_text)
+        self.choose_region()
+        self.input_info(info_text)
+        self.input_post_code(post_code_text)
+        if set_default is True:
+            self.click_default()
+        self.click_save()

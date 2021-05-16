@@ -12,6 +12,13 @@ class HomePage(BaseAction):
     def click_me(self):
         self.click(self.me_button)
 
+    # 分类元素
+    category_button = By.ID, 'com.yunmall.lc:id/tab_category'
+
+    # 点击分类
+    def click_category(self):
+        self.click(self.category_button)
+
     # 判断当前页面是否登录，未登录--> 直接点击登录按钮 已登录--> 结束方法  用到很多页面 需要传page对象
     def login_if_not(self, page):
         # 点击 我

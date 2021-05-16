@@ -38,7 +38,6 @@ class BaseAction:
         message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
         try:
             self.find_element(message_xpath,6,0.1)
-            print('找到toast元素了')
             return True
         except:
             print('打印当前错误信息:元素未找到！')
@@ -124,3 +123,11 @@ class BaseAction:
             elif keyword in self.driver.page_source:
                 return True
             time.sleep(poll)
+
+    # 判断某个特征是否存在 必须传递时间5s 否则会找30s才会报异常 浪费时间
+    def is_feature_exist(self,feature,timeout=5,poll=0.1):
+        try:
+            self.find_element(feature,timeout,poll)
+            return True
+        except:
+            return False

@@ -45,10 +45,10 @@ test_add_address:
   test_add_address_007:
     name: '张三'
     phone: '12345678910'
-    info: '三单元'
+    info: '二单元 305'
     post_code: '210'
     toast: '邮政编码错误'
-  # 信息全部正确 顺便测试邮编为空
+  # 信息全部正确 顺便测试邮编为空·
   test_add_address_008:
     name: '张三'
     phone: '12345678910'
