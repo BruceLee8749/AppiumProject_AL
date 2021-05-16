@@ -1,6 +1,9 @@
 from page.about_page import AboutPage
 from page.address_list_page import AddressListPage
+from page.category_page1 import CategoryPage
 from page.edit_address_page import EditAddressPage
+from page.goods_detail_page import GoodsDetailPage
+from page.goods_list_page import GoodsListPage
 from page.home_page import HomePage
 from page.login_page import LoginPage
 from page.me_page import MyPage
@@ -56,8 +59,20 @@ class Page:
     def edit_address(self):
         return EditAddressPage(self.driver)
 
+    @property
+    def category_page(self):
+        return CategoryPage(self.driver)
+
+    @property
+    def goods_detail(self):
+        return GoodsDetailPage(self.driver)
+
+    @property
+    def goods_list(self):
+        return GoodsListPage(self.driver)
+
     # 从登录到进入地址管理页面封装
-    def enter_address_manager(self,page_obj):
+    def enter_address_manager(self, page_obj):
         # 登录
         self.home.login_if_not(page_obj)
         # 用户信息页面上 点击设置

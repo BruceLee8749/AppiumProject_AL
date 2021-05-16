@@ -5,10 +5,10 @@ from base.base_action import BaseAction
 
 # 网站主页面
 class HomePage(BaseAction):
-    # 元素 “我”
+    # 按钮 “我”
     me_button = By.ID, 'com.yunmall.lc:id/tab_me'
 
-    # 点击 “我”
+    # 点击 “我” 按钮
     def click_me(self):
         self.click(self.me_button)
 
