@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 
@@ -10,5 +11,6 @@ class AboutPage(BaseAction):
     update_button = By.XPATH, '//*[@text="版本更新"]'
 
     # 点击版本 更新
+    @allure.step(title='关于百年奥莱页面 点击版本更新')
     def click_update(self):
         self.click(self.update_button)

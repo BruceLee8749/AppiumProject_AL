@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -11,6 +12,7 @@ class CategoryPage(BaseAction):
     goods_list_button = By.ID, 'com.yunmall.lc:id/iv_img'
 
     # 随机点击首页家纺中某个元素
+    @allure.step(title='商品首页面 点击某个商品')
     def click_goods_list(self):
         goods_lists = self.find_elements(self.goods_list_button)
         goods_list_count = len(goods_lists)

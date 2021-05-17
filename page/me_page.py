@@ -1,5 +1,6 @@
 from time import sleep
 
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -15,14 +16,17 @@ class MyPage(BaseAction):
     be_vip_button = By.XPATH, '//*[@text="加入超级VIP"]'
 
     # 获取昵称文本
+    @allure.step(title='个人信息页 获取昵称')
     def get_nick_name_text(self):
         print('是否打印get_text')
         return self.get_text(self.nick_name_text_view)
 
     # 点击 设置按钮
+    @allure.step(title='个人信息页 点击设置')
     def click_setting(self):
         self.click(self.setting_button)
 
     # 滑动查找 并点击超级vip按钮
+    @allure.step(title='个人信息页 点击超级vip')
     def click_be_vip(self):
         self.find_element_with_scroll(self.be_vip_button).click()

@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -7,19 +8,21 @@ from base.base_action import BaseAction
 class HomePage(BaseAction):
     # 按钮 “我”
     me_button = By.ID, 'com.yunmall.lc:id/tab_me'
-
-    # 点击 “我” 按钮
-    def click_me(self):
-        self.click(self.me_button)
-
     # 分类元素
     category_button = By.ID, 'com.yunmall.lc:id/tab_category'
 
+    # 点击 “我” 按钮
+    @allure.step(title='主页 点击 我')
+    def click_me(self):
+        self.click(self.me_button)
+
     # 点击分类
+    @allure.step(title='主页 点击 分类')
     def click_category(self):
         self.click(self.category_button)
 
     # 判断当前页面是否登录，未登录--> 直接点击登录按钮 已登录--> 结束方法  用到很多页面 需要传page对象
+    @allure.step(title='主页 如果没登录 点击登录')
     def login_if_not(self, page):
         # 点击 我
         self.click_me()

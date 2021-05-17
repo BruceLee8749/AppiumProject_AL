@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -13,13 +14,16 @@ class SettingPage(BaseAction):
     address_list_button = By.XPATH, '//*[@text="地址管理"]'
 
     # 查找并点击 关于百年奥莱按钮
+    @allure.step(title='设置 点击关于百年奥莱')
     def click_about(self):
         self.find_element_with_scroll(self.about_button).click()
 
     # 查找并点击 清理缓存
+    @allure.step(title='设置 点击清理缓存')
     def click_cache(self):
         self.find_element_with_scroll(self.clear_cache_button).click()
 
     # 查找并点击地址管理
+    @allure.step(title='设置 点击地址管理')
     def click_address_list(self):
         self.find_element_with_scroll(self.address_list_button).click()

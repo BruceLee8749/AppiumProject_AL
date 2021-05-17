@@ -1,6 +1,7 @@
 import random
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -20,14 +21,17 @@ class GoodsDetailPage(BaseAction):
     shop_cart_button = By.ID, 'com.yunmall.lc:id/btn_shopping_cart'
 
     # 点击 加入购物车 按钮
+    @allure.step(title='购买商品页面 加入购物车')
     def click_add_shop_cart(self):
         self.click(self.add_shop_card_button)
 
     # 判断当前页面是否有 确认按钮
+    @allure.step(title='购买商品页面 判断是否有确认按钮')
     def if_commit_exists(self):
         return self.is_feature_exist(self.commit_button)
 
     # 点击 确认
+    @allure.step(title='购买商品页面 点击确认按钮')
     def click_commit(self):
         self.click(self.commit_button)
 
@@ -37,6 +41,7 @@ class GoodsDetailPage(BaseAction):
         return text.split(" ")[1]
 
     # 选择商品属性 并添加购物车
+    @allure.step(title='购买商品页面 选择商品规格')
     def click_spec(self):
         if self.if_commit_exists():
             while True:

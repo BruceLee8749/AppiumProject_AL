@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -12,9 +13,11 @@ class VipPage(BaseAction):
     be_vip_button = By.XPATH, '//input[@value="立即成为会员"]'
 
     # 输入邀请码
+    @allure.step(title='加入超级vip页面 输入邀请码')
     def input_invite(self, text):
         self.input(self.invite_edit_text, text)
 
     # 点击立即成为会员
+    @allure.step(title='加入超级vip页面 点击立即成为会员')
     def click_be_vip(self):
         self.click(self.be_vip_button)

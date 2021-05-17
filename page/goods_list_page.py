@@ -1,5 +1,6 @@
 import random
 
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -14,10 +15,12 @@ class GoodsListPage(BaseAction):
     goods_null_text = By.XPATH, '//*[contains(@text,"抱歉")]'
 
     # 判断当前页面上是否有商品
+    @allure.step(title='商品详情页面 判断是否含有商品')
     def if_goods_exists(self):
         return self.is_feature_exist(self.goods_null_text)
 
     # 随机点击 某个商品
+    @allure.step(title='商品详情页面 随机点击某个商品')
     def click_goods(self):
         goods = self.find_elements(self.goods_button)
         goods_count = len(goods)

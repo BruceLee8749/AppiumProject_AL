@@ -1,6 +1,7 @@
 import random
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 
 from base.base_action import BaseAction
@@ -26,30 +27,37 @@ class EditAddressPage(BaseAction):
     save_button = By.XPATH, '//*[@text="保存"]'
 
     # 输入 收件人
+    @allure.step(title='新增地址页面 输入收件人')
     def input_name(self, text):
         self.input(self.name_edit_text, text)
 
     # 输入 手机号
+    @allure.step(title='新增地址页面 输入手机号')
     def input_phone(self, text):
         self.input(self.phone_edit_text, text)
 
     # 输入 详细地址
+    @allure.step(title='新增地址页面 输入详细地址')
     def input_info(self, text):
         self.input(self.info_edit_text, text)
 
     # 输入邮编
+    @allure.step(title='新增地址页面 输入邮编')
     def input_post_code(self, text):
         self.input(self.post_code_edit_text, text)
 
     # 点击设置为默认地址
+    @allure.step(title='新增地址页面 点击设置默认地址')
     def click_default(self):
         self.click(self.default_address_button)
 
     # 点击选择所在地区
+    @allure.step(title='新增地址页面 点选城市1')
     def click_region(self):
         self.click(self.region_button)
 
     # 进入所在地区并选择随机区域
+    @allure.step(title='新增地址页面 点选城市2')
     def choose_region(self):
         self.click_region()
         while True:
@@ -65,10 +73,12 @@ class EditAddressPage(BaseAction):
             time.sleep(1)
 
     # 点击保存
+    @allure.step(title='新增地址页面 点击保存')
     def click_save(self):
         self.click(self.save_button)
 
     # 新增地址组合业务方法
+    @allure.step(title='新增地址页面 填写地址信息组合业务方法')
     def add_new_address_group(self, name_text, phone_text, info_text, post_code_text,set_default):
         # 输入名字-电话-选择地区-输入详细地址-输入邮编-点击默认-点击保存 Ture-->点击默认按钮
         print('打印组合方法参数(有些是空值测试值)：{},{},{},{},{}'.format(name_text, phone_text, info_text, post_code_text,set_default))
