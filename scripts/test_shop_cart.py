@@ -1,7 +1,6 @@
 from time import sleep
 
 import allure
-import pytest
 
 from base.base_driver import init_driver
 from page.page import Page

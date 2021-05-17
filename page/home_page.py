@@ -12,6 +12,10 @@ class HomePage(BaseAction):
     category_button = By.ID, 'com.yunmall.lc:id/tab_category'
     # 主页上的购物车
     shop_cart_button = By.ID, "com.yunmall.lc:id/tab_shopping_cart"
+    # 放大镜按钮
+    search_button = By.ID, "com.yunmall.lc:id/ymtitlebar_left_btn_image"
+    # 首页按钮
+    home_button = By.ID,"com.yunmall.lc:id/tab_home"
 
     # 点击 “我” 按钮
     @allure.step(title='主页 点击 我')
@@ -40,8 +44,19 @@ class HomePage(BaseAction):
             page.login.click_login()
         else:
             # 如果已经登录 直接返回结束
-            return  
+            return
 
     @allure.step(title='主页 点击 购物车')
     def click_shop_cart(self):
         self.click(self.shop_cart_button)
+
+    @allure.step(title='主页 点击 放大镜')
+    # 点击放大镜
+    def click_search(self):
+        self.click(self.search_button)
+
+    @allure.step(title='主页 点击 首页')
+    # 点击首页（从 个人信息页面 跳到 首页）
+    def click_home(self):
+        self.click(self.home_button)
+
