@@ -18,8 +18,6 @@ class TestAddress:
 
     data_list = analyze_file('address_data.yaml', 'test_add_address')
     """新增地址测试"""
-
-    @pytest.mark.skip(reason="此条用例暂不执行")
     @pytest.mark.parametrize('args', data_list)
     def test_add_address(self, args):
         name = args['name']
@@ -47,8 +45,6 @@ class TestAddress:
             assert self.page.edit_address.is_toast_exist(toast), '保存不成功，toast内容和预期不符'
 
     """编辑地址测试"""
-
-    @pytest.mark.skip(reason="此条用例暂不执行")
     def test_edit_address(self):
         # 进入 地址管理页面
         self.page.enter_address_manager(self.page)
@@ -68,7 +64,6 @@ class TestAddress:
             assert self.page.address_list.is_toast_exist("保存成功")
 
     """删除地址测试"""
-
     def test_delete_address(self):
         # 从首页 进入 地址管理页面
         self.page.enter_address_manager(self.page)

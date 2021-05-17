@@ -1,0 +1,13 @@
+1.运行allure 命令
+allure generate report/ -o report/html --clean
+
+2.pytest命令配置
+[pytest]
+
+addopts = -s -p no:warnings --reruns 2 --alluredir  ./report/
+#--reruns 2
+
+testpaths = ./scripts
+
+python_files = test_*.py
+

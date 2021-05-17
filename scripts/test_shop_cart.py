@@ -1,6 +1,8 @@
 import time
 from time import sleep
 
+import allure
+
 from base.base_driver import init_driver
 from page.page import Page
 
@@ -23,6 +25,7 @@ class TestShopCart:
         self.page.category_page.click_goods_list()
         # 判断当前商品详情页面是否为空
         if self.page.goods_list.if_goods_exists():
+            allure.attach("没有商品截图",self.driver.get_screenshot_as_png(),allure.attachment_type.PNG)
             print('当前页面没有商品！！！')
         else:
             # 商品类表页面—商品详情页面
