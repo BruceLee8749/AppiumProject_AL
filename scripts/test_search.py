@@ -14,7 +14,7 @@ class TestSearch:
     def teardown(self):
         sleep(5)
         self.driver.quit()
-    @pytest.mark.skip
+
     def test_search(self):
         # 首页，如果没有登录就登录
         self.page.home.login_if_not(self.page)
@@ -26,11 +26,16 @@ class TestSearch:
         self.page.search_page.input_keyword("嘿嘿嘿")
         # 搜索页面点击搜索 到 搜索结果页
         self.page.search_page.click_search()
+        # 判断当前页面是否存在商品
+        no_search_goods_flag = self.page.search_page.if_search_goods_exists()
         # 在搜索结果页点击返回 到 搜索页面
         self.page.search_page.press_back()
-        # 判断搜索文字是否在 最近搜索中
-        assert self.page.search_page.is_keyword_exist("嘿嘿嘿")
+        # 如果能够搜索到商品 才去判断
+        if not no_search_goods_flag:
+            # 判断搜索文字是否在 最近搜索中
+            assert self.page.search_page.is_keyword_exist("嘿嘿嘿")
 
+    @pytest.mark.skip
     def test_search_del(self):
         # 添加搜索记录
         # 首页，如果没有登录就登录

@@ -37,6 +37,12 @@ class SearchPage(BaseAction):
         xpath = By.XPATH, "//*[@resource-id='com.yunmall.lc:id/keyayout']/*/*[@text='{}']".format(keyword)
         return self.is_feature_exist(xpath)
 
+    # 输入搜索文字能否找到商品 True->没有商品
+    @allure.step(title="搜索页面 输入搜索文字能否找到商品")
+    def if_search_goods_exists(self):
+        xpath = By.XPATH,"//*[contains(@text,'没有找到相关商品')]"
+        return self.is_feature_exist(xpath)
+
     # 点击删除搜索记录
     @allure.step(title="搜索页面 点击 删除搜索记录")
     def click_search_del(self):
