@@ -11,6 +11,7 @@ from page.login_page import LoginPage
 from page.me_page import MyPage
 from page.register_page import RegisterPage
 from page.setting_page import SettingPage
+from page.shop_cart_page import ShopCartPage
 from page.vip_page import VipPage
 
 
@@ -72,6 +73,10 @@ class Page:
     @property
     def goods_list(self):
         return GoodsListPage(self.driver)
+
+    @property
+    def shop_cart(self):
+        return ShopCartPage(self.driver)
 
     # 从登录到进入地址管理页面封装
     @allure.step(title='page页面 从首页登录->地址管理 组合业务方法')

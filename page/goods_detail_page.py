@@ -59,14 +59,17 @@ class GoodsDetailPage(BaseAction):
                     break
 
     # 获取商品标题
+    @allure.step(title='购买商品页面 获取商品标题')
     def get_goods_title_text(self):
         return self.get_text(self.goods_title_text_view)
 
     # 点击购物车图标 查看已购买的商品列表
+    @allure.step(title='购买商品页面 查看已购买商品列表')
     def click_shop_cart(self):
         self.click(self.shop_cart_button)
 
-    # 通过商品标题 判断商品在不在已购买的购物车列表中
+    # 通过商品标题 判断商品是否在购物车列表中
+    @allure.step(title='购买商品页面 判断商品是否在购物车列表中')
     def is_goods_title_exist(self, title):
         title_xpath = By.XPATH, '//*[@text="{}"]'.format(title)
         return self.is_feature_exist(title_xpath)
