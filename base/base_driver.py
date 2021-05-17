@@ -19,4 +19,3 @@ def init_driver(no_reset=True):
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
     return driver
 # adb shell dumpsys window windows | findstr mFocusedApp 查找包名 界面名
-

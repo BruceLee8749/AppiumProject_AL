@@ -24,7 +24,7 @@ class TestLogin:
             raise Exception('未进注册登录界面，检查是否已登录')
 
     def teardown_class(self):
-        sleep(10)
+        sleep(5)
         self.driver.quit()
 
     # 虽然单元测试一组方法不太好，但测的是仅仅一个功能 原则可以接受

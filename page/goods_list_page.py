@@ -7,8 +7,15 @@ from base.base_action import BaseAction
 
 # 商品详情页面
 class GoodsListPage(BaseAction):
-    # 商品列表 按钮 (点击图)
+    # 商品分类下具体某类商品
     goods_button = By.ID, 'com.yunmall.lc:id/iv_element_1'
+
+    # 如果没有就显示抱歉..文本
+    goods_null_text = By.XPATH, '//*[contains(@text,"抱歉")]'
+
+    # 判断当前页面上是否有商品
+    def if_goods_exists(self):
+        return self.is_feature_exist(self.goods_null_text)
 
     # 随机点击 某个商品
     def click_goods(self):

@@ -31,22 +31,21 @@ class BaseAction:
     def is_toast_exist(self, message):
         """
         根据部分内容，判断toast是否存在
-        :param message: 文字部分内容
-        :return: 是否存在
-        contains（）文字部分包含方法
+        注意：getPageSource无法找到toast;
+        要获取到toast，必须将框架切换成必须切换uiautomator2；
         """
         message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
         try:
-            self.find_element(message_xpath,6,0.1)
+            self.find_element(message_xpath, 6, 0.1)
             return True
         except:
-            print('打印当前错误信息:元素未找到！')
+            print('打印当前页面错误信息:页面上{} 元素未找到！'.format(message))
             return False
 
     # 获取toast的全部文本值
     def get_toast_text(self, message):
         if self.is_toast_exist(message):
-            message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(message)
+            message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
             return self.get_text(message_xpath)
         else:
             # 自定义异常信息 并抛出
@@ -75,21 +74,21 @@ class BaseAction:
 
         # 从下往上滑动
         if direction == 'up':
-            self.driver.swipe(bottom_x,bottom_y,top_x,top_y,1000)
+            self.driver.swipe(bottom_x, bottom_y, top_x, top_y, 1000)
         # 从上往下滑动
         elif direction == 'down':
-            self.driver.swipe(top_x,top_y,bottom_x,bottom_y,1000)
+            self.driver.swipe(top_x, top_y, bottom_x, bottom_y, 1000)
         # 从右往左滑动
         elif direction == 'left':
-            self.driver.swipe(right_x,right_y,left_x,left_y,1000)
+            self.driver.swipe(right_x, right_y, left_x, left_y, 1000)
         # 从左往右滑动
         elif direction == 'right':
-            self.driver.swipe(left_x,left_y,right_x,right_y,1000)
+            self.driver.swipe(left_x, left_y, right_x, right_y, 1000)
         else:
             raise Exception('必须使用指定方向参数名称: up/down/left/right')
 
     # 定义边滑边找方法
-    def find_element_with_scroll(self,loc,direction='up'):
+    def find_element_with_scroll(self, loc, direction='up'):
         page_source = ''
         while True:
             try:
@@ -107,7 +106,7 @@ class BaseAction:
                     page_source = self.driver.page_source
 
     # 获取 关键字字符串是否在page_source中 （driver.page_source 返回是一段超长字符串）
-    def is_keyword_in_page_source(self,keyword,timeout=5,poll=0.2):
+    def is_keyword_in_page_source(self, keyword, timeout=5, poll=0.2):
         """
         keyword: 要找的关键字字符串
         timeout: 查找总时间
@@ -125,9 +124,9 @@ class BaseAction:
             time.sleep(poll)
 
     # 判断某个特征是否存在 必须传递时间5s 否则会找30s才会报异常 浪费时间
-    def is_feature_exist(self,feature,timeout=5,poll=0.1):
+    def is_feature_exist(self, feature, timeout=5, poll=0.1):
         try:
-            self.find_element(feature,timeout,poll)
+            self.find_element(feature, timeout, poll)
             return True
         except:
             return False
