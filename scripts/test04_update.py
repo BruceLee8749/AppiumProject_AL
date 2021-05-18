@@ -19,10 +19,8 @@ class TestUpdate:
         # 点击设置按钮
         self.page.me.click_setting()
         # 进入 设置界 面 查找并点击关于百年奥莱
-        # self.page.setting.click_about()
-        self.page.setting.click_cache()
-
-
+        self.page.setting.click_about()
+        # self.page.setting.click_cache()
         # 点击版本更新
         self.page.about.click_update()
         # 查找是否 含有指定toast
