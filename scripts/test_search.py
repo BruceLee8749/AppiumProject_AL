@@ -35,7 +35,6 @@ class TestSearch:
             # 判断搜索文字是否在 最近搜索中
             assert self.page.search_page.is_keyword_exist("嘿嘿嘿")
 
-    @pytest.mark.skip
     def test_search_del(self):
         # 添加搜索记录
         # 首页，如果没有登录就登录

@@ -48,4 +48,3 @@ class TestLogin:
         else:
             # 找toast提示，把预定toast参数传进去看是否可以找到，如果能就通过，否则不通过
             assert self.page.login.is_toast_exist(toast)
-
