@@ -1,0 +1,27 @@
+【Jenkins】
+1.原始码管理
+git
+存储库网址：git项目url地址
+分支：git项目分支名
+Credentials ：写github登录名密码
+
+2.轮循SCM    -->提交代码到git就执行 每分钟
+Poll SCM ：写     */1 * * * *
+
+3.建设环境（在控制台输入的脚本命令）
+PATH=$PATH;C:\Python3.9\Scripts      ：写python scripts 路径   目的是找到scripts下的pytest.exe
+pytest     ： 相当于控制台输入pytest    运行在ini中写好的脚本内容
+
+4.构建后的操作--Allure报告
+Path  ： allure报告存放的文件夹名 默认即可
+
+【pycharm项目】
+关于工程的ini 
+[pytest]
+
+addopts = -s -p no:warnings --reruns 1
+
+testpaths = ./scripts
+
+python_files = test_*.py
+

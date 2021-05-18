@@ -5,7 +5,7 @@ import yaml
 def analyze_file(file_name, key):
     # 用pytest命令运行路径为：./data/
     # 用框架run in 运行路径为：../data/
-    with open("../data/{}".format(file_name), "r", encoding='utf-8') as f:
+    with open("./data/{}".format(file_name), "r", encoding='utf-8') as f:
         case_data = yaml.load(f, Loader=yaml.FullLoader)[key]
 
         data_list = list()
